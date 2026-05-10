@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { locationData, currentWeather, currentUnits } from "../types/types";
 import fetchSuggestions from "../api/fetchSuggestions";
 import fetchCurrentWeather from "../api/fetchCurrentWeather";
+import { getWeatherTheme } from "../weather/themes"
 
 export function useWeatherData(){
     const [loading, setLoading] = useState<boolean>(false)
@@ -46,12 +47,14 @@ export function useWeatherData(){
         }
     }
 
+    const theme = getWeatherTheme(currentWeather?.current.weather_code ?? 0, currentWeather?.current.is_day ?? 1)
+
     const handleLocationSelection = (suggestion: locationData) => {
         setLocationData(suggestion)
         getCurrentWeather(suggestion.latitude, suggestion.longitude)
     }
 
-    return {locationData, currentWeather, loading, handleLocationSelection}
+    return {locationData, currentWeather, theme, loading, handleLocationSelection}
 
 
 }

@@ -60,3 +60,12 @@ export type currentUnits = {
   wind_gusts_10m: string;
   wind_speed_10m: string;
 };
+
+export type WeatherTheme = {
+  background: any
+  textColor: string
+  secondaryTextColor: string
+  inputBackground: string
+  inputTextColor: string
+  statusBarStyle: "light" | "dark"
+}

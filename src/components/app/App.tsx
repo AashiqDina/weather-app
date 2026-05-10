@@ -3,31 +3,39 @@ import { StyleSheet, View } from 'react-native';
 import Home from '../home/Home'
 import Header from '../header/Header';
 import { useWeatherData } from '../../hooks/useWeatherActions';
+import Background from '../background/Background';
 
 export default function App() {
 
-  const {locationData, currentWeather, loading, handleLocationSelection} = useWeatherData()
+  const {locationData, currentWeather, theme, loading, handleLocationSelection} = useWeatherData()
 
   return (
     <View style={styles.container}>
+
+      <Background
+        theme={theme}
+      />
+
       <Header 
+        theme={theme}
         location={locationData?.name}
         handleLocationSelection={handleLocationSelection}
       />
       <Home
+        theme={theme}
         currentWeather={currentWeather}
       />
-      <StatusBar style="auto" />
+      <StatusBar style={theme?.statusBarStyle} />
+      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
+    flex: 1,
     alignItems: "center",
     justifyContent: "flex-start",
-    height: '100%',
-    backgroundColor: '#292929'
+    backgroundColor: 'black'
   },
 });

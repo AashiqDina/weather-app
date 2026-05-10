@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import { WeatherTheme } from '../../types/types';
 
-export default StyleSheet.create({
+export const headerStyles = (theme: WeatherTheme) =>  StyleSheet.create({
     Header: {
         display: "flex",
         flexDirection: "row",
@@ -11,13 +12,13 @@ export default StyleSheet.create({
         padding: 0,
         paddingTop: 60,
         paddingBottom: 20,
-        backgroundColor: '#292929',
     },
 
     HeaderLeft: {
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
+        // marginLeft: 10,
         gap: 2,
         margin: 0,
         padding: 0,
@@ -44,7 +45,7 @@ export default StyleSheet.create({
     },
 
     LocationText: {
-        color: '#ffffff',
+        color: theme.textColor,
         fontSize: 25,
         fontWeight: 600
     },
@@ -56,36 +57,60 @@ export default StyleSheet.create({
     },
 
     DateText: {
-        color: '#ffffff',
+        color: theme.textColor,
         fontSize: 15,
         fontWeight: 400,
     },
 
     SearchInput: {
         padding: 10,
-        backgroundColor: '#ffffff',
-        color: '#111111',
+        backgroundColor: theme.inputBackground,
+        color: theme.inputTextColor,
         borderRadius: 100,
         height: 40,
         marginLeft: 10,
         marginRight: 10,
+        marginTop: 5,
+        marginBottom: 5,
     },
 
     SuggestionContainer: {
         position: "absolute",
         top: 105,
-        width: '100%',
+        width: '95%',
         marginTop: 5,
-        backgroundColor: '#ffffff',
+        backgroundColor: theme.inputBackground,
         borderRadius: 10,
+        zIndex: 1,
+        borderWidth: 0,
+        paddingTop: 2,
+        paddingBottom: 2,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
     },
 
     Suggestion: {
+        borderRadius: 10,
         padding: 10,
+        backgroundColor: theme.inputBackground,
+        margin: 3,
+        marginTop: 1,
+        marginBottom: 2,
     },
 
     SuggestionText: {
-        color: '#000000'
+        color: theme.inputTextColor,
+        fontSize: 15
+    },
+        
+    SuggestionText2: {
+        color: theme.inputTextColor,
+        fontSize: 12
     },
 
 });

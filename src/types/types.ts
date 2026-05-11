@@ -61,6 +61,50 @@ export type currentUnits = {
   wind_speed_10m: string;
 };
 
+export type DailyWeatherData = {
+    latitude: number
+    longitude: number
+    generationtime_ms: number
+    utc_offset_seconds: number
+    timezone: string
+    timezone_abbreviation: string
+    elevation: number
+
+    daily_units: {
+        time: string
+        weather_code: string
+        temperature_2m_max: string
+        temperature_2m_min: string
+    }
+
+    daily: {
+        time: string[]
+        weather_code: number[]
+        temperature_2m_max: number[]
+        temperature_2m_min: number[]
+    }
+}
+
+export type WeatherApiResponse = {
+    latitude: number
+    longitude: number
+    generationtime_ms: number
+    utc_offset_seconds: number
+    timezone: string
+    timezone_abbreviation: string
+    elevation: number
+
+    hourly_units: {
+        time: string
+        temperature_2m: string
+    }
+
+    hourly: {
+        time: string[]
+        temperature_2m: number[]
+    }
+}
+
 export type WeatherTheme = {
   background: any
   textColor: string
@@ -68,4 +112,8 @@ export type WeatherTheme = {
   inputBackground: string
   inputTextColor: string
   statusBarStyle: "light" | "dark"
+}
+
+export type ViewableData = {
+  weatherLabel: string
 }

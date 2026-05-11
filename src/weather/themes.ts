@@ -4,13 +4,14 @@ import CloudyDay from "../../assets/weather-background/CloudyDay.svg"
 import CloudyNight from "../../assets/weather-background/CloudyNight.svg"
 import FoggyDay from "../../assets/weather-background/FoggyDay.svg"
 import FoggyNight from "../../assets/weather-background/FoggyNight.svg"
-import RainyDay from "../../assets/weather-background/RainDay.png" // used pngs due to possible rendering issues
+import RainyDay from "../../assets/weather-background/RainDay.png" // used pngs due to possible rendering issues with many raindrops being rendered with svg
 import RainyNight from "../../assets/weather-background/RainNight.png"
 import SnowyDay from "../../assets/weather-background/SnowyDay.png"
 import SnowyNight from "../../assets/weather-background/SnowyNight.png"
 import ThunderstormDay from "../../assets/weather-background/ThunderstormDay.png"
 import ThunderstormNight from "../../assets/weather-background/ThunderstormNight.png"
 import { WeatherTheme } from "../types/types"
+import { weatherGroups } from "./weatherGroups"
 
 const weatherThemes = {
     clearDay: {
@@ -116,15 +117,6 @@ const weatherThemes = {
 //     "0-1" : weatherThemes.clearDay,
 //     "0-0" : weatherThemes.clearNight,
 // }
-
-const weatherGroups = {
-    clear: [0],
-    cloudy: [1, 2, 3],
-    foggy: [45, 48],
-    rainy: [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82],
-    snowy: [71, 73, 75, 77, 85, 86],
-    thunderstorm: [95, 96, 99],
-}
 
 export const getWeatherTheme = ( weatherCode: number, isDay: number): WeatherTheme => {
 

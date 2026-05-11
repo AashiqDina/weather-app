@@ -6,10 +6,11 @@ export const HomeStyles = (theme: WeatherTheme) => StyleSheet.create({
     TemperatureContainer: {
         display: "flex",
         alignItems: "flex-start",
+        flexDirection: "column",
         width: "100%",
-        height: 200,
+        height: 125,
         marginLeft: 30,
-        marginTop: 30
+        marginTop: 30,
     },
 
     fillContainer: {
@@ -27,5 +28,17 @@ export const HomeStyles = (theme: WeatherTheme) => StyleSheet.create({
         opacity: 0,
         fontSize: 120,
         fontWeight: 100
+    },
+
+    WeatherLabel: {
+        color: theme.textColor + 80,
+        fontSize: 25,
+        fontWeight: 400
+    },
+
+    WeatherHL: {
+        color: theme.textColor + 80,
+        fontSize: 18,
+        fontWeight: 300
     }
 })

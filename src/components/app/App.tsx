@@ -2,12 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import Home from '../home/Home'
 import Header from '../header/Header';
-import { useWeatherData } from '../../hooks/useWeatherActions';
+import { useWeatherData } from '../../hooks/useWeatherData';
 import Background from '../background/Background';
+import Loading from '../../../assets/animations/Loading';
 
 export default function App() {
 
-  const {locationData, currentWeather, theme, loading, handleLocationSelection} = useWeatherData()
+  const {locationData, currentWeather, dailyWeather, theme, loading, error, handleLocationSelection, resetError} = useWeatherData()
+
+  if(loading) return <Loading/> 
 
   return (
     <View style={styles.container}>
@@ -24,6 +27,7 @@ export default function App() {
       <Home
         theme={theme}
         currentWeather={currentWeather}
+        dailyWeather={dailyWeather}
       />
       <StatusBar style={theme?.statusBarStyle} />
       
